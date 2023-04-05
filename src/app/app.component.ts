@@ -7,6 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   opcao = 0;
-
   name = 'Escolha o cálculo desejado:';
 }
