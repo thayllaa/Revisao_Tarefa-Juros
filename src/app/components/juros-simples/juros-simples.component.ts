@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-juros-simples',
@@ -6,10 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./juros-simples.component.css']
 })
 export class JurosSimplesComponent implements OnInit {
+  @Input() capital: string;
+  @Input() taxa: string;
+  @Input() tempo: string;
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getJurosSimples(){
+    return Number(this.capital) * Number(this.taxa) * Number(this.tempo);
   }
 
 }
