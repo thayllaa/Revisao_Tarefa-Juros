@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-juros-compostos',
@@ -6,10 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./juros-compostos.component.css']
 })
 export class JurosCompostosComponent implements OnInit {
+  @Input() capital: string;
+  @Input() taxa: string;
+  @Input() tempo: string;
 
   constructor() { }
 
   ngOnInit() {
   }
 
+  getDadosJurosCompostos(){
+    return Number(this.capital) * Math.pow((1 - Number(this.taxa)),Number(this.tempo));
+  }
 }
