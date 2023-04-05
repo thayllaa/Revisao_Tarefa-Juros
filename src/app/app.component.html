@@ -1,1 +1,16 @@
 <hello name="{{ name }}"></hello>
+
+<input type="radio" [(ngModel)]="option" [value]="1"/>Juros Simples
+<input type="radio" [(ngModel)]="option" [value]="2"/>Juros Compostos
+
+<ng-container *ngIf="option == 1">
+<app-karen-simple-interests-component></app-karen-simple-interests-component>
+</ng-container>
+
+<ng-container *ngIf="option == 2">
+<app-karen-compound-interests-component></app-karen-compound-interests-component>
+
+</ng-container>
+<app-juros-simples></app-juros-simples>
+<app-juros-compostos></app-juros-compostos>
+</ng-container>
