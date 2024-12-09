@@ -1,7 +1,7 @@
 # 📌 Calculadora de Juros Simples & Compostos
 
 ## 🖼️ Demonstração
-![Juros Simples](https://github.com/thayllaa/MyServiceApp/blob/main/src/assets/images/ServiceApp_Screenshot.png)
+![Juros Simples](https://github.com/thayllaa/Tarefa_Calculo-de-Juros/blob/main/src/app/assets/images/CalculoJuros_Screenshot.png)
 
 Uma simples calculadora de juros compostos construída com Angular.
 
