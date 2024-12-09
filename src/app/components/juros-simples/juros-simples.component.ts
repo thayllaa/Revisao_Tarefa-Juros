@@ -25,6 +25,7 @@ export class JurosSimplesComponent implements OnInit {
   @Input() capital: number;
   @Input() taxa: number;
   @Input() tempo: number;
+  jurosOpcao: string = 'simples';
 
   constructor() {}
 
@@ -37,6 +38,29 @@ export class JurosSimplesComponent implements OnInit {
 
   closeCalculator(event: Event) {
     event.stopPropagation();
+    this.cardClass = 'hidden';
     this.showCalculator = false;
+
+    const radioSelecionado = document.querySelector(
+      'input[type="radio"]:checked'
+    ) as HTMLInputElement;
+    if (radioSelecionado) {
+      this.jurosOpcao = radioSelecionado.value as 'simples' | 'composto';
+    } else {
+      this.jurosOpcao = '';
+    }
+    const radioSimples: HTMLInputElement = document.querySelector(
+      'input[type="radio"][value="simples"]'
+    );
+    if (radioSimples) {
+      radioSimples.checked = false;
+    }
+
+    const radioComposto: HTMLInputElement = document.querySelector(
+      'input[type="radio"][value="composto"]'
+    );
+    if (radioComposto) {
+      radioComposto.checked = false;
+    }
   }
 }

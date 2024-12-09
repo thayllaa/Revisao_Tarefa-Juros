@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  option = 0;
+  option: 'simples' | 'composto';
   name = 'Escolha o cálculo desejado:';
+  jurosOpcao: 'simples' | 'composto';
 }

@@ -25,6 +25,7 @@ export class JurosCompostosComponent {
   capital = 0;
   taxa = 0;
   tempo = 0;
+  jurosOpcao: string = 'composto';
 
   getJurosCompostos() {
     const montante = this.capital * Math.pow(1 + this.taxa / 100, this.tempo);
@@ -35,5 +36,27 @@ export class JurosCompostosComponent {
     event.stopPropagation();
     this.cardClass = 'hidden';
     this.showCalculator = false;
+
+    const radioSelecionado = document.querySelector(
+      'input[type="radio"]:checked'
+    ) as HTMLInputElement;
+    if (radioSelecionado) {
+      this.jurosOpcao = radioSelecionado.value as 'simples' | 'composto';
+    } else {
+      this.jurosOpcao = '';
+    }
+
+    const radioSimples: HTMLInputElement = document.querySelector(
+      'input[type="radio"][value="simples"]'
+    );
+    if (radioSimples) {
+      radioSimples.checked = false;
+    }
+    const radioComposto: HTMLInputElement = document.querySelector(
+      'input[type="radio"][value="composto"]'
+    );
+    if (radioComposto) {
+      radioComposto.checked = false;
+    }
   }
 }

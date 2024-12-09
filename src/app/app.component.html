@@ -2,17 +2,27 @@
   <hello name="{{ name }}"></hello>
 
   <div class="options">
-    <input type="radio" [(ngModel)]="option" [value]="1" />Juros Simples
-    <input type="radio" [(ngModel)]="option" [value]="2" />Juros Compostos
+    <input
+      type="radio"
+      [(ngModel)]="jurosOpcao"
+      [(ngModel)]="option"
+      value="simples"
+    />Juros Simples
+    <input
+      type="radio"
+      [(ngModel)]="jurosOpcao"
+      [(ngModel)]="option"
+      value="composto"
+    />Juros Compostos
   </div>
 
-  <ng-container *ngIf="option == 1">
+  <ng-container *ngIf="jurosOpcao === 'simples'">
     <div class="calculator">
       <app-juros-simples> </app-juros-simples>
     </div>
   </ng-container>
 
-  <ng-container *ngIf="option == 2">
+  <ng-container *ngIf="jurosOpcao === 'composto'">
     <div class="calculator">
       <app-juros-compostos> </app-juros-compostos>
     </div>
