@@ -1,21 +1,39 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger,
+} from '@angular/animations';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-juros-compostos',
   templateUrl: './juros-compostos.component.html',
-  styleUrls: ['./juros-compostos.component.css']
+  styleUrls: ['./juros-compostos.component.css'],
+  animations: [
+    trigger('fade', [
+      state('void', style({ opacity: 0 })),
+      transition('void => *', [style({ opacity: 0 }), animate(300)]),
+    ]),
+  ],
 })
-export class JurosCompostosComponent implements OnInit {
-  @Input() capital: string;
-  @Input() taxa: string;
-  @Input() tempo: string;
+export class JurosCompostosComponent {
+  cardClass: string = '';
+  showCalculator = true;
 
-  constructor() { }
+  capital = 0;
+  taxa = 0;
+  tempo = 0;
 
-  ngOnInit() {
+  getJurosCompostos() {
+    const montante = this.capital * Math.pow(1 + this.taxa / 100, this.tempo);
+    return montante.toFixed(2);
   }
 
-  getJurosCompostos(){
-    return Number(this.capital) * Math.pow((1 - Number(this.taxa)),Number(this.tempo));
+  closeCalculator(event: Event) {
+    event.stopPropagation();
+    this.cardClass = 'hidden';
+    this.showCalculator = false;
   }
 }

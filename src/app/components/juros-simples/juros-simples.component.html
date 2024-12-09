@@ -1,12 +1,18 @@
-<h3>Juros Simples:</h3>
-<p>JS = C * i * t</p>
-<ul>
-  <li>C = Capital emprestado.</li>
-  <li>i = Taxa de juros do período.</li>
-  <li>t = Tempo.</li>
-</ul>
-<div>
-  <input [(ngModel)]="capital" type="number"> * 
-  <input [(ngModel)]="taxa" type="number"> *
-  <input [(ngModel)]="tempo" type="number"> = {{getJurosSimples()}}
+<div [@fade]="'void'" *ngIf="showCalculator" [@fade]>
+  <button class="close-button" (click)="closeCalculator($event)">Fechar</button>
+  <h3>Juros Simples</h3>
+  <div class="calculator">
+    <p class="formula">JS = C * i * t</p>
+    <div>
+      <input
+        [(ngModel)]="capital"
+        type="number"
+        placeholder="Capital Inicial"
+      />
+      *
+      <input [(ngModel)]="taxa" type="number" placeholder="Taxa de Juros (%)" />
+      * <input [(ngModel)]="tempo" type="number" placeholder="Tempo" /> =
+      <span class="result">{{ getJurosSimples() }}</span>
+    </div>
+  </div>
 </div>

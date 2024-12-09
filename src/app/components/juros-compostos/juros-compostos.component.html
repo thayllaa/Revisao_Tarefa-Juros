@@ -1,12 +1,18 @@
-<h3>Juros Compostos:</h3>
-<p>JC = C.(1-i)^n</p>
-<ul>M o montante, C o capital inicial, i é a taxa de juros e n é o tempo
-  <li>C = Capital emprestado.</li>
-  <li>i = Taxa de juros do período.</li>
-  <li>t = Tempo.</li>
-</ul>
-<div>
-  <input [(ngModel)]="capital" type="number"> * 
-  (1 - <input [(ngModel)]="taxa" type="number">) ^
-  <input [(ngModel)]="tempo" type="number"> = {{getJurosCompostos()}}
+<div [@fade]="'void'" *ngIf="showCalculator" [@fade]>
+  <button class="close-button" (click)="closeCalculator($event)">Fechar</button>
+  <h3>Juros Compostos:</h3>
+  <div class="calculator">
+    <p class="formula">JC = C * (1 + i)<sub>n</sub></p>
+    <div>
+      <input
+        [(ngModel)]="capital"
+        type="number"
+        placeholder="Capital Inicial"
+      />
+      * (1 +
+      <input [(ngModel)]="taxa" type="number" placeholder="Taxa de Juros (%)" />
+      / 100) ^ <input [(ngModel)]="tempo" type="number" placeholder="Tempo" /> =
+      <span class="result">{{ getJurosCompostos() }}</span>
+    </div>
+  </div>
 </div>

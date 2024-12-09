@@ -1,0 +1,39 @@
+.calculator {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.close-button {
+  position: absolute;
+  top: 10.5rem;
+  right: 5rem;
+  cursor: pointer;
+  background: none;
+  border: 1px solid red;
+  border-radius: 3px;
+  color: red;
+  font-weight: 600;
+}
+
+.hidden {
+  display: none;
+}
+
+.formula {
+  font-style: italic;
+}
+
+input {
+  padding: 5px;
+  margin: 5px;
+  width: 100px;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.result {
+  font-weight: bold;
+}
